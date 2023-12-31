@@ -84,7 +84,7 @@ end
 term.clear()
 
 local function getInstallationInformation(tag)
-   rootPath = "https://github.com/KittenPixel-cell/WrenchOS-Computercraft/" .. tag or "master"
+   rootPath = "https://github.com/KittenPixel-cell/WrenchOS-Computercraft/" .. tag or "main"
    print("Fetching installation information...")
    local inst, err = getFile("/inst/installation.lua")
    if not inst then
@@ -101,21 +101,21 @@ end
 
 --Conditions
 if nOption  == 1 then
-print(("Setup will create %d directories and will install %d files."):format(#getInstallationInformation("master").directories, #getInstallationInformation("master").files))
+print(("Setup will create %d directories and will install %d files."):format(#getInstallationInformation("main").directories, #getInstallationInformation("main").files))
 write("Confirm? Y/n ")
 local ready = read()
 if string.lower(ready) == "n" then
    print("Installation canceled.")
 else
    print("Creating directories...")
-        for i, v in pairs(getInstallationInformation("master").directories) do
+        for i, v in pairs(getInstallationInformation("main").directories) do
             print(("Creating: %s"):format(v))
             fs.makeDir(v)
         end
    term.clear()
 
    print("Downloading files...")
-   for i, v in pairs(getInstallationInformation("master").files) do
+   for i, v in pairs(getInstallationInformation("main").files) do
        print(("Downloading: %s"):format(v))
        downloadFile(v)
    end
