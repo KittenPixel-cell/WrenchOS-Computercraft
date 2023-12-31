@@ -49,6 +49,8 @@
         "/lib/textbox.lua",
         "/lib/scrollwindow.lua",
         "/lib/draw.lua",
-        "/startup.lua"
+        "/startup.lua",
+        "/startwrench.lua",
+        "/Boot.lua"
     }
 }
